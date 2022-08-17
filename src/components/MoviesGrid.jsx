@@ -3,7 +3,6 @@ import styles from "../components/MovieGrid.module.css";
 import { useEffect, useState } from "react";
 import { get } from "../utils/httpClient";
 import { Spinner } from "./Spinner";
-
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Empty } from "./Empty";
 
@@ -36,7 +35,7 @@ export const MoviesGrid = ({ search }) => {
   return (
     <InfiniteScroll
       dataLength={movies.length}
-      hasMore={true}
+      hasMore={hasMore}
       next={() => setPage((prevPage) => prevPage + 1)}
       loader={<Spinner />}
     >
